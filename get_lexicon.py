@@ -3,7 +3,6 @@
 # AUTHOR: Martino Sorbaro, 2017
 # This code is distributed with absolutely no warranty or fitness for purpose.
 import nltk
-# from nltk.probability import FreqDist
 from pandas import read_csv, DataFrame
 from numpy import nan, argsort, empty, unique
 from bs4 import BeautifulSoup
@@ -42,7 +41,7 @@ def get_lexicon():
 
     # Load word occurrences in general English
     script_dir = os.path.dirname(__file__)
-    english_counts_path = os.path.join(script_dir, 'count_1w.txt')
+    english_counts_path = os.path.join(script_dir, 'frequencies_english.txt')
     en_wf = read_csv(english_counts_path, delimiter='\t', header=None)
     en_freq = dict(zip(en_wf[0], en_wf[1]))
     # hack, fuck it
@@ -89,8 +88,8 @@ def get_lexicon():
     lex = list(txt_freq_over.index[argsort(
         txt_freq_over['ratio'])][:args.nshown])
 
-    # # save to file
     if args.output != '':
+        # save to file
         source_base = os.path.splitext(os.path.basename(source))[0]
         fname = os.path.join(args.output, source_base + "_lex.txt")
         thefile = open(fname, 'w')
