@@ -22,7 +22,7 @@ Showing more words is equivalent to including less and less specialised words.
 
 ## Example
 
-For example, running AutoLexi with minoccurrences=3 and nshown=40 on a World Bank
+For example, running AutoLexi with `minoccurrences=3` and `nshown=40` on a World Bank
 [report][1] about mental health interventions in Ukraine gives:
 
 `zaporizhia tintle onehealth bromet nonspecialized nonspecialists narcology
